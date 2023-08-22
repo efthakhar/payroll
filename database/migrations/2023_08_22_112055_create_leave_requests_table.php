@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('leave_requests', function (Blueprint $table) {
             $table->id();
+            $table->string('employee');
             $table->dateTime('from');
             $table->dateTime('to');
             $table->string('category'); // vacation/sick/leave/personal_problem
             $table->text('reason');
-            $table->text('status'); // approved/rejected
+            $table->text('status')->nullable(); // approved/rejected
             $table->timestamps();
         });
     }

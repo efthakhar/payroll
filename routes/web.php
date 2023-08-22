@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\LeaveRequestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,18 +31,17 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware(['auth'])->group(function () {
 
     // Dashboard
-    // Route::get('/admin', function(){      
-    //     return redirect()->route('admin.event.index');
-    // });
+    Route::get('/admin', function(){      
+       // return redirect()->route('admin.dashboard.overview');
+        return view('admin.dashboard.overview');
+    });
 
    
     // // Event
-    // Route::get('/admin/events', [EventController::class, 'index'])->name('admin.event.index');
-    // Route::get('/admin/events/create', [EventController::class, 'create'])->name('admin.event.create');
-    // Route::get('/admin/events/{id}', [EventController::class, 'show'])->name('admin.event.single');
-    // Route::post('/admin/events', [EventController::class, 'store'])->name('admin.event.store');
-    // Route::get('/admin/events/{id}/edit', [EventController::class, 'edit'])->name('admin.event.edit');
-    // Route::put('/admin/events/{id}', [EventController::class, 'update'])->name('admin.event.update');
-    // Route::post('/admin/events/reserve/{id}', [EventController::class, 'reserve'])->name('admin.event.reserve');
+    Route::get('/admin/leave-requests', [LeaveRequestController::class, 'index'])->name('admin.leave_request.index');
+    Route::get('/admin/leave-requests/create', [LeaveRequestController::class, 'create'])->name('admin.leave_request.create');
+    Route::post('/admin/leave-requests', [LeaveRequestController::class, 'store'])->name('admin.leave_request.store');
+    Route::post('/admin/leave-approve/{id}', [LeaveRequestController::class, 'approve']);
+    Route::post('/admin/leave-reject/{id}', [LeaveRequestController::class, 'reject']);
 
 });

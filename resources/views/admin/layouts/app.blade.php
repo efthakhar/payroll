@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>evenjj</title>
+    <title>Payroll</title>
 
     <script src="{{asset('assets/language/'.config('app.locale').'.js')}}"></script>
 
@@ -19,7 +19,7 @@
 <body>
     <div class="admin-page" ln={{config('app.locale')}}>
 
-        @include('admin.partials.sidebar', $navlinks = get_sidebar_navlinks())
+        @include('admin.partials.sidebar')
 
         <div class="admin-main">
             @include('admin.partials.header')
