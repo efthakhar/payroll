@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('admin.leave_request.index');
 });
 
 // Authentication Routes
@@ -32,8 +32,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Dashboard
     Route::get('/admin', function(){      
-       // return redirect()->route('admin.dashboard.overview');
-        return view('admin.dashboard.overview');
+        return redirect()->route('admin.leave_request.index');
     });
 
    

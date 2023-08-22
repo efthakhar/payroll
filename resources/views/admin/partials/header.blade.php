@@ -15,9 +15,4 @@
       </li>
     </ul>
   </div>
-  <a href="/demo">
-    <div class="boxed-bg-icon ms-2 cursor-pointer">
-      <i class="ri-loop-right-line h3 text-sb1 cursor-pointer"></i>
-    </div>
-  </a>
 </div>
