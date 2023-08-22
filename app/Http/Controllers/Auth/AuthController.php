@@ -34,9 +34,9 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => "manager",
         ]);
 
-        $user->assignRole('user');
 
         if ($user) {
             return redirect('/login');
